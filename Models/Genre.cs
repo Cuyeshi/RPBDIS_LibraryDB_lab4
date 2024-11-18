@@ -1,7 +1,10 @@
-﻿namespace RPBDIS_lab4.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RPBDIS_lab4.Models
 {
     public class Genre
     {
+        [Key]
         public int GenreId { get; set; }
 
         public string Name { get; set; } = null!;

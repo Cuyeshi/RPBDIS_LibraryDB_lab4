@@ -1,11 +1,13 @@
 ﻿using RPBDIS_lab4.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RPBDIS_lab4.Models;
 
 public partial class Reader
 {
+    [Key]
     public int ReaderId { get; set; }
 
     public string FullName { get; set; } = null!;

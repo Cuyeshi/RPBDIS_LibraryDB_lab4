@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using RPBDIS_lab4.Models; // ”бедитесь, что этот namespace соответствует вашему проекту
+
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ƒобавл€ем сервисы дл€ работы с контроллерами и представлени€ми
 builder.Services.AddControllersWithViews();
+
+// –егистрируем контекст базы данных (замените строку подключени€ на вашу)
+builder.Services.AddDbContext<LibraryDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 
@@ -9,7 +18,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -19,6 +27,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+//app.UseMiddleware<DatabaseSeederMiddleware>();
+
 
 app.MapControllerRoute(
     name: "default",

@@ -1,11 +1,13 @@
 ﻿using RPBDIS_lab4.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RPBDIS_lab4.Models;
 
 public partial class Publisher
 {
+    [Key]
     public int PublisherId { get; set; }
 
     public string Name { get; set; } = null!;

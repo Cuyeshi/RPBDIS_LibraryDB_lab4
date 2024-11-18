@@ -1,9 +1,11 @@
-﻿using System.Reflection.PortableExecutable;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection.PortableExecutable;
 
 namespace RPBDIS_lab4.Models
 {
     public class LoanedBook
     {
+        [Key]
         public int LoanId { get; set; }
 
         public int? BookId { get; set; }

@@ -1,7 +1,10 @@
-﻿namespace RPBDIS_lab4.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace RPBDIS_lab4.Models
+
 {
     public class Book
     {
+        [Key]
         public int BookId { get; set; }
 
         public string Title { get; set; } = null!;
